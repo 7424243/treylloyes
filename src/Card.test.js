@@ -14,5 +14,5 @@ describe('Card component', () => {
             .create(<Card />)
             .toJSON();
         expect(tree).toMatchSnapshot();
-    })
+    });
 })
