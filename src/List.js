@@ -3,7 +3,7 @@ import Card from './Card';
 import './List.css'
 
 function List(props) {
-    if(props.cards) {
+    
         return (
             <section className='List'>
                 <header className='List-header'>
@@ -13,20 +13,26 @@ function List(props) {
                     {props.cards.map((card) =>
                         <Card
                             key={card.id}
+                            id={card.id}
                             title={card.title}
-                            content={card.content}>
+                            content={card.content}
+                            onDeleteCard={props.onDeleteCard}>
                         </Card>
                     )}
                     <button
                         type='button'
-                        className='List-add-button'>
+                        className='List-add-button'
+                        onClick={() => props.onAddRandomCard(props.id)}>
                         + Add Random Card
                     </button>
                 </div>
             </section>
         )
-    }
-    return null;
+
+}
+
+List.defaultProps = {
+    onAddRandomCard: () => {}
 }
 
 export default List;
